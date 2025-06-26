@@ -7,12 +7,14 @@ local Players = game:GetService("Players")
 local CoreGui = game:GetService("CoreGui")
 local Player = Players.LocalPlayer
 
+local LibraryRawUrl = "https://raw.githubusercontent.com/hacked-prototype/RedzLibV4/main"
+
 local redzLib = {
   info = {
     Version = "v1.2.2",
     PlaceName = MarketplaceService:GetProductInfo(game.PlaceId).Name
   },
-  Themes = loadstring(game:HttpGet("https://raw.githubusercontent.com/spdmTeamXDev/RedzLibV4/refs/heads/main/Themes.lua"))(),
+  Themes = loadstring(game:HttpGet(LibraryRawUrl .. "/Themes.lua"))(),
   Flags = {},
   Save = {
     Theme = "Default",
@@ -20,7 +22,7 @@ local redzLib = {
     ScrollSize = 160,
     TransparencyHub = 0.1
   },
-  Icons = loadstring(game:HttpGet("https://raw.githubusercontent.com/TS7-Dev1/REDZ-V5/refs/heads/main/Icons.lua"))() --[[
+  Icons = loadstring(game:HttpGet(LibraryRawUrl .. "/Icons.lua"))() --[[
     I found this source on fluent but I don't know who created it
     source -- https://github.com/dawid-scripts/Fluent/blob/master/src/Icons.lua --
   ]],
@@ -640,7 +642,7 @@ function redzLib:MakeWindow(Configs)
     Size = UDim2.fromScale(0.35, 0.20),
     Position = UDim2.fromScale(0.1, 0.65),
     BackgroundColor3 = Theme["Color Hub 2"],
-    TextColor3 = Color3.fromRGB(200, 0, 0),
+    TextColor3 = Color3.fromRGB(0, 200, 0),
     Font = Theme["Font"][2],
     TextSize = 18
   }, {
@@ -653,7 +655,7 @@ function redzLib:MakeWindow(Configs)
     Position = UDim2.fromScale(0.9, 0.65),
     AnchorPoint = Vector2.new(1, 0),
     BackgroundColor3 = Theme["Color Hub 2"],
-    TextColor3 = Color3.fromRGB(0, 200, 0),
+    TextColor3 = Color3.fromRGB(200, 0, 0),
     Font = Theme["Font"][2],
     TextSize = 18
   }, {
@@ -732,16 +734,16 @@ function redzLib:MakeWindow(Configs)
     if not WaitMinimize then
       WaitMinimize = true
       Window.Dialog:Create({
-        Title = "Are you sure you want to close this script??",
+        Title = "هل انت متاكد تريد قفل lunaX?",
         Confirm = {
-          Text = "Close",
+          Text = "نعم",
           Callback = function()
             CreateTween({ScreenGui.UIScale, "Scale", 0, 0.3, true})
             ScreenGui:Destroy()
           end
         },
         Cancel = {
-          Cancel = "Cancel"
+          Cancel = "لا"
         }
       })
       WaitMinimize = false
@@ -1701,7 +1703,7 @@ function redzLib:MakeWindow(Configs)
         Size = UDim2.new(0, 16, 0, 16),
         Position = UDim2.new(0, -5, 0.5, 0),
         AnchorPoint = Vector2.new(1, 0.5),
-        Image = "rbxassetid://133745164699425",
+        Image = "rbxassetid://15637313297",
         BackgroundTransparency = 1,
         Rotation = 180,
         ImageColor3 = Theme["Color Stroke"]
@@ -2018,7 +2020,7 @@ function redzLib:MakeWindow(Configs)
         Size = UDim2.new(0, 16, 0, 16),
         Position = UDim2.new(0, -5, 0.5, 0),
         AnchorPoint = Vector2.new(1, 0.5),
-        Image = "rbxassetid://15637081879",
+        Image = "rbxassetid://133745164699425",
         BackgroundTransparency = 1,
         ImageColor3 = Theme["Color Stroke"]
       }), "Stroke")
